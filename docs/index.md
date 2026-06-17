@@ -28,28 +28,18 @@ $$
 # Complete Example
 
 ```lua
-local RunService = game:GetService("RunService")
+local Nami = require(script.NamiFinal)
+local ocean: Nami.WaterSurface = Nami.create(50,50, 1, 30, 1/50, 0.98,1)
+ocean:initialise(workspace)
+ocean.meshPart.Material = Enum.Material.Glass
 
-local Nami = require(path.To.Nami)
-
-local surface = Nami.create(
-    100,
-    100,
-    2,
-    20,
-    1 / 60,
-    0.5,
-    0.995,
-    1.2
-)
-
-surface:initialise(workspace)
-
-RunService.Heartbeat:Connect(function(dt)
-    surface:step(dt)
+game.RunService.RenderStepped:Connect(function(dt)
+	local t = os.clock()
+	if ocean:step(dt) then
+		local z,x = ocean:worldPositionToMesh(math.sin((2*math.pi)/2 * t)*10, math.cos((2*math.pi)/2 * t)*10)
+		ocean:pointSplash(z,x,5)
+	end
 end)
-
-surface:pointSplash(50, 50, 5)
 ```
 
 ---

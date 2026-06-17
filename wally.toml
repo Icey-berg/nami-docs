@@ -1,0 +1,10 @@
+[package]
+name = "icey-berg/nami"
+description = "Realtime water surface physics for roblox"
+license = "MIT"
+version = "0.1.0"
+registry = "https://github.com/UpliftGames/wally-index"
+realm = "shared"
+exclude = ["aftman.toml"]
+
+[dependencies]
