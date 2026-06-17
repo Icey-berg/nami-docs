@@ -1,14 +1,18 @@
 site_name: Nami
 theme:
+  logo: assets/Icon.png
+  favicon: assets/Icon.png
   name: material
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
+      primary: blue grey
       toggle:
         icon: material/weather-night
 
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
+      primary: blue grey
       toggle:
         icon: material/weather-sunny
 
